@@ -2,14 +2,23 @@
   "name": "webflow-dev-template",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "src/index.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cross-env BUILD_ENV=dev node ./builder/esbuild.js",
+    "build": "cross-env BUILD_ENV=prod node ./builder/esbuild.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.14.9",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.23.0",
     "typescript": "^5.5.3"
   }
 }
