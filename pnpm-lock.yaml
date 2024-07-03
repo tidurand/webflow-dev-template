@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@finsweet/ts-utils':
+        specifier: ^0.40.0
+        version: 0.40.0
       '@types/node':
         specifier: ^20.14.9
         version: 20.14.9
@@ -210,6 +213,9 @@ packages:
   '@eslint/object-schema@2.1.4':
     resolution: {integrity: sha512-BsWiH1yFGjXXS2yvrf5LyuoSIIbPrGUWob917o+BTKuZ7qJdxX8aJLRxs1fS9n6r7vESrq1OUqb68dANcFXuQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@finsweet/ts-utils@0.40.0':
+    resolution: {integrity: sha512-Q24YkkvVxZOA7OGpgC7FsYakHBZWKSiZoV68F1HlhGcqqi5v+9mTHVxV8fSiPJawsTDrjwK44jhYk+GovPWT3w==}
 
   '@humanwhocodes/module-importer@1.0.1':
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
@@ -846,6 +852,8 @@ snapshots:
   '@eslint/js@9.6.0': {}
 
   '@eslint/object-schema@2.1.4': {}
+
+  '@finsweet/ts-utils@0.40.0': {}
 
   '@humanwhocodes/module-importer@1.0.1': {}
 

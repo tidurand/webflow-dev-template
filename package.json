@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@finsweet/ts-utils": "^0.40.0",
     "@types/node": "^20.14.9",
     "cross-env": "^7.0.3",
     "esbuild": "^0.23.0",
