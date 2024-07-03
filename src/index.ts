@@ -1,11 +1,9 @@
-console.log('Hello, world');
-//On lance le script quand la page est chargée
-document.addEventListener('DOMContentLoaded', function() { 
+import type { Webflow } from '@finsweet/ts-utils'
 
-  //On récupère l'élément avec la classe title
-  const myTitle = document.querySelector('.title') as HTMLElement
-  
-  //On change la couleur du texte en rouge
-  myTitle.style.color = 'blue' 
+declare const Webflow: Webflow
 
-});
+Webflow.push(() => {
+  //Write your code here
+
+  console.log('Hello World test')
+})
