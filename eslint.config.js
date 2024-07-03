@@ -11,9 +11,11 @@ export default [
       'prettier/prettier': 'error',
     },
     languageOptions: { globals: globals.browser },
-    ignores: ['dist/', '.eslint.config.js'],
-    plugins: { prettier }
+    plugins: { prettier },
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
+  {
+    ignores: ['dist/', 'builder/', '.eslint.config.js'],
+  }
 ];
