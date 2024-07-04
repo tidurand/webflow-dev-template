@@ -13,9 +13,12 @@ export default [
     languageOptions: { globals: globals.browser },
     plugins: { prettier },
   },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
   {
-    ignores: ['dist/', 'builder/', '.eslint.config.js'],
-  }
+    ...pluginJs.configs.recommended,
+    files: ["src/**/*.{ts,js}"],
+  },
+  ...tseslint.configs.recommended.map(config => ({
+    ...config,
+    files: ["src/**/*.ts"]
+})),
 ];
