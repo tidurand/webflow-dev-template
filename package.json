@@ -2,6 +2,7 @@
   "name": "@tidurand/webflow-dev-template",
   "version": "0.0.0",
   "description": "",
+  "main": "dist/index.js",
   "type": "module",
   "module": "src/index.ts",
   "files": [
@@ -13,7 +14,7 @@
     "lint": "eslint ./src && prettier --check ./src",
     "lint:fix": "eslint ./src --fix && prettier --write ./src",
     "check": "tsc --noEmit",
-    "changeset": "changeset",
+    "release": "changeset publish",
     "reinstall": "rm -rf node_modules pnpm-lock.yaml && pnpm i",
     "prepare": "husky"
   },
