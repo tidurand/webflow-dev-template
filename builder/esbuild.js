@@ -2,7 +2,7 @@ import * as esbuild from 'esbuild';
 
 const BUILD_DIRECTORY = 'dist';
 const ENTRY_POINTS = ['src/index.ts'];
-const IS_PROD = process.env.BUILD_END === 'prod';
+const IS_PROD = process.env.BUILD_ENV === 'prod';
 const LIVE_RELOAD = !IS_PROD;
 const SERVE_PORT = 3000;
 const SERVE_ORIGIN = `http://localhost:${SERVE_PORT}`;
@@ -21,10 +21,12 @@ const context = await esbuild.context({
 });
 
 if (IS_PROD) {
+  console.log('prod')
   await context.rebuild();
   context.dispose();
 }
 else {
+  console.log('dev')
   await context.watch();
   await context
     .serve({
