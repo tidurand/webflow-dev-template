@@ -3,24 +3,46 @@
 A template for starting all your Webflow projects requiring code.
 Looks like the one of [finsweet](https://github.com/finsweet/developer-starter) but it's easily customable.
 
+## Requirements
+
+Install pnpm on you computer
+```bash
+npm i -g pnpm
+```
+
+Got a npm token (named NPM_TOKEN) : [How to do](https://docs.npmjs.com/creating-and-viewing-access-tokens)
+
 ## Installation
 
 1. Click on Use this template > [Create a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template)
-2. In your editor
+2. Change some settings in your repository 
+
+```Settings > Actions > General > Workflow Permissions```
+
+- Read and write permissions.
+- Allow GitHub Actions to create and approve pull requests.
+
+```Settings > Secrets and variables > Actions > New repository secret ```
+- Name : NPM_TOKEN
+- Secret : you token
+3. Install dependencies
 ```bash
 pnpm install
 ```
-Run dev
+
+You can start your project ! Here two usefull script
+
+Dev mode (with live reload)
 ```bash
 pnpm dev
 ```
 
-Run build (for production)
+Build (for production)
 ```bash
 pnpm build
 ```
 
-3. Write your code in src/index.ts (don't touch Webflow.push but you should remove console.log)
+4. Write your code in src/index.ts (don't touch Webflow.push but you should remove console.log)
 
 ```typescript
 Webflow.push(() => {
