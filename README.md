@@ -1,4 +1,4 @@
-# Webflow dev template
+# Webflow Dev Template
 
 A template for starting all your Webflow projects requiring code.
 Looks like the one of [finsweet](https://github.com/finsweet/developer-starter) but it's easily customable.
