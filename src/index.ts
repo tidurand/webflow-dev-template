@@ -1,6 +1,6 @@
-import type { Webflow } from '@finsweet/ts-utils'
+import type { Webflow as WebflowType } from '@finsweet/ts-utils'
 
-declare const Webflow: Webflow
+export const Webflow = window.Webflow as WebflowType
 
 Webflow.push(() => {
   //Write your code here
