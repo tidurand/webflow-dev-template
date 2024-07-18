@@ -1,11 +1,11 @@
-# Webflow dev template
+# Webflow Dev Template
 
 A template for starting all your Webflow projects requiring code.
-Looks like the one of [finsweet](https://github.com/finsweet/developer-starter) but it's easily customable.
+It looks like the one of [finsweet](https://github.com/finsweet/developer-starter) but it's easily customizable.
 
 ## Requirements
 
-Install pnpm on you computer
+Install pnpm on your computer
 ```bash
 npm i -g pnpm
 ```
@@ -23,14 +23,14 @@ Got a npm token (named NPM_TOKEN) : [How to do](https://docs.npmjs.com/creating-
 - Allow GitHub Actions to create and approve pull requests.
 
 ```Settings > Secrets and variables > Actions > New repository secret ```
-- Name : NPM_TOKEN
-- Secret : you token
+- Name: NPM_TOKEN
+- Secret: you token
 3. Install dependencies
 ```bash
 pnpm install
 ```
 
-You can start your project ! Here two usefull script
+You can start your project! Here are two useful scripts:
 
 Dev mode (with live reload)
 ```bash
@@ -55,33 +55,24 @@ Webflow.push(() => {
 
 ## Deployment
 
-### Requirements
-
-#### Got a NPM Token
-
-#### Change Github Settings
-
-
-### Steps
-
 ```bash
 pnpm changeset
 ```
 Then push your code,
 
-In GitHub, when CI/CD fininshed, you will have a pull request, merge it and you're done !
+In GitHub, when CI/CD is finished, you will have a pull request, merge it and you're done!
 
 Your package will appear in npm.
 
 ## Tools
 
-The avantage of this template is you can easily change each tool to suit your own configuration.
+The advantage of this template is you can easily change each tool to suit your configuration.
 
 ### Finsweet ts-utils (don't change)
 
-Finsweet made a HUGE work by typing the Webflow.js file which includes in all Webflow project.
+Finsweet did a HUGE work by typing the Webflow.js file included in all Webflow projects.
 
-With this, you can access to many types and methods not provided by Webflow.
+With this, you can access many types and methods not provided by Webflow.
 
 ### ESBuild
 
@@ -89,13 +80,13 @@ A fast JavaScript bundler and minifier that compiles and packages JavaScript and
 
 Update builder/esbuild.js
 
-It include a live reload in builder/live-reload.js
+It includes a live reload in builder/live-reload.js
 
 ### TSConfig
 
 A configuration file for TypeScript that specifies the compiler options and file paths required to compile a TypeScript project.
 
-Update tsconfig. json
+Update tsconfig.json
 
 ### ESLint
 
@@ -123,7 +114,7 @@ Update .changeset/config.json
 
 ### CI/CD
 
-This pipeline use GitHub Actions
+This pipeline uses GitHub Actions
 
 #### Lint
 
