@@ -63,16 +63,19 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create Release Pull Request and Publish
-        id: changesets-production
+      - name: Publish to npm
+        if: github.event.inputs.target == 'npm'
         uses: changesets/action@v1
         with:
-          publish: |
-            if [ "${{ github.event.inputs.target }}" == "npm" ]; then
-              pnpm release
-            else
-              pnpm release --registry=https://npm.pkg.github.com/
-            fi
+          publish: pnpm release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish to GitHub Packages
+        if: github.event.inputs.target == 'github'
+        uses: changesets/action@v1
+        with:
+          publish: pnpm release --registry=https://npm.pkg.github.com/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
