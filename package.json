@@ -1,6 +1,9 @@
 {
   "name": "@tidurand/webflow-dev-template",
   "version": "0.2.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "description": "",
   "main": "dist/index.js",
   "type": "module",
