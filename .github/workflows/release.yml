@@ -1,10 +1,16 @@
 name: Release
 
 on:
-  push:
-    branches:
-      - master
-      - main
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Select the target registry (npm or github)'
+        required: true
+        default: 'npm'
+        type: choice
+        options:
+          - npm
+          - github
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -41,25 +47,32 @@ jobs:
             echo "GITHUB_TOKEN is not set"
             exit 1
           fi
-          if [ -z "${{ secrets.NPM_TOKEN }}" ]; then
+          if [ "${{ github.event.inputs.target }}" == "npm" ] && [ -z "${{ secrets.NPM_TOKEN }}" ]; then
             echo "NPM_TOKEN is not set"
             exit 1
           fi
 
       - name: Create .npmrc
         run: |
-          cat << EOF > "$HOME/.npmrc"
-            //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          EOF
+          if [ "${{ github.event.inputs.target }}" == "npm" ]; then
+            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > "$HOME/.npmrc"
+          else
+            echo "//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN" > "$HOME/.npmrc"
+          fi
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-
-      - name: Create Release Pull Request and Publish to npm
+      - name: Create Release Pull Request and Publish
         id: changesets-production
         uses: changesets/action@v1
         with:
-          publish: pnpm release
+          publish: |
+            if [ "${{ github.event.inputs.target }}" == "npm" ]; then
+              pnpm release
+            else
+              pnpm release --registry=https://npm.pkg.github.com/
+            fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
